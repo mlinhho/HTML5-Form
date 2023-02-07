@@ -19,28 +19,57 @@
             margin-bottom:10px;
         }
     </style>
+    <script>
+        function IsEmpty() {
+            event.preventDefault()
+            console.log("I'm clicked")
+            if (document.forms['frm'].card.value === "") {
+                document.getElementById("project").innerHTML ="field is empty"
+                return false;
+            } else if (document.forms['frm'].cvc.value === "") {
+                document.getElementById("project").innerHTML ="field is empty"
+                return false;
+            } else if (document.forms['frm'].amount.value === "") {
+                document.getElementById("project").innerHTML ="field is empty"
+                return false;
+            } else if (document.forms['frm'].firstname.value === "") {
+                document.getElementById("project").innerHTML ="field is empty"
+                return false;
+            } else if (document.forms['frm'].lastname.value === "") {
+                document.getElementById("project").innerHTML ="field is empty"
+                return false;
+            } else if (document.forms['frm'].city.value === "") {
+                document.getElementById("project").innerHTML ="field is empty"
+                return false;
+            } else if (document.forms['frm'].code.value === "") {
+                document.getElementById("project").innerHTML ="field is empty"
+                return false;
+            } 
+            return true;
+            }
+    </script>
     <title>Document</title>
 </head>
 <body>
     <div class="card" style="width:95%; margin:0 auto; margin-top:20px !important;">
-        <form class="form-inline needs-validation">
+        <form class="form-inline" name="frm">
             <h3 class="card-title" style="padding:15px; background-color:rgb(244, 244, 244);">Payment form example</h3>
             <div class="alert alert-danger" role="alert" style="margin:0 auto;width:98%;margin-bottom:15px !important;">
-                Some fields are missing
+                <p id="project"></p>
             </div>
             <div class="form-group" style="padding-left:15px; padding-right:15px; padding-bottom:15px;">
                 <div class="row">
                     <div class="col" style="max-width:45%">
                         <p>Card #</p>
-                        <input required type="text" name="card-num" placeholder="XXXXXXXXXXXXXXXX" size="18" id="cr_no" minlength="19" maxlength="19" style="width:100%;border-radius:5px; border:1px solid lightgray; padding:10px; ">
+                        <input type="text" name="card" placeholder="XXXXXXXXXXXXXXXX" size="18" id="cr_no" minlength="19" maxlength="19" style="width:100%;border-radius:5px; border:1px solid lightgray; padding:10px; ">
                     </div>
                     <div class="col" style="max-width:25%">
                         <p>CVC #</p>
-                        <input required type="password" name="cvc" placeholder="0000" size="18" id="cr_no" minlength="19" maxlength="19" style="width:100%; border-radius:5px; border:1px solid lightgray; padding:10px; ">
+                        <input type="password" name="cvc" placeholder="0000" size="18" id="cr_no" minlength="19" maxlength="19" style="width:100%; border-radius:5px; border:1px solid lightgray; padding:10px; ">
                     </div>
                     <div class="col" style="max-width:30%">
                         <p>Amount</p>
-                        <strong>$</strong><input required type="password" name="amount" placeholder="Amount" size="18" id="cr_no" minlength="19" maxlength="19" style="width:96%; border-radius:5px; border:1px solid lightgray; padding:10px; ">
+                        <strong>$</strong><input type="password" name="amount" placeholder="Amount" size="18" id="cr_no" minlength="19" maxlength="19" style="width:96%; border-radius:5px; border:1px solid lightgray; padding:10px; ">
                     </div>
                 </div>
             </div>
@@ -48,11 +77,11 @@
                 <div class="row">
                     <div class="col" style="max-width:50%">
                         <p>First Name</p>
-                        <input required type="text" name="firstname" size="18" id="cr_no" minlength="19" maxlength="19" style="width:100%;border-radius:5px; border:1px solid lightgray; padding:10px; ">
+                        <input type="text" name="firstname" size="18" id="cr_no" minlength="19" maxlength="19" style="width:100%;border-radius:5px; border:1px solid lightgray; padding:10px; ">
                     </div>
                     <div class="col" style="max-width:50%">
                         <p>Last Name</p>
-                        <input required type="text" name="lastname" size="18" id="cr_no" minlength="19" maxlength="19" style="width:100%; border-radius:5px; border:1px solid lightgray; padding:10px; ">
+                        <input type="text" name="lastname" size="18" id="cr_no" minlength="19" maxlength="19" style="width:100%; border-radius:5px; border:1px solid lightgray; padding:10px; ">
                     </div>
                 </div>
             </div>
@@ -60,11 +89,11 @@
                 <div class="row">
                     <div class="col" style="max-width:50%">
                         <p>City</p>
-                        <input  required type="text" name="firstname" size="18" id="cr_no" minlength="19" maxlength="19" style="width:100%;border-radius:5px; border:1px solid lightgray; padding:10px; ">
+                        <input  type="text" name="city" size="18" id="cr_no" minlength="19" maxlength="19" style="width:100%;border-radius:5px; border:1px solid lightgray; padding:10px; ">
                     </div>
                     <div class="col" style="max-width:25%">
                         <p>State</p>
-                        <select required class="form-control" id="state" name="state" style="padding-bottom:14px">
+                        <select class="form-control" id="state" name="state" style="padding-bottom:14px">
                             <option value="">Pick a state</option>
                             <option value="AK">Alaska</option>
                             <option value="AL">Alabama</option>
@@ -122,7 +151,7 @@
                     </div>
                     <div class="col" style="max-width:25%">
                         <p>Postal Code</p>
-                        <input required type="password" name="code" size="18" id="cr_no" minlength="19" maxlength="19" style="width:100%; border-radius:5px; border:1px solid lightgray; padding:10px; ">
+                        <input type="password" name="code" size="18" id="cr_no" minlength="19" maxlength="19" style="width:100%; border-radius:5px; border:1px solid lightgray; padding:10px; ">
                     </div>
                 </div>
             </div>
@@ -143,15 +172,15 @@
                     </div>
                 </div>
             </div>
-        </form>
-        <div class="card" style="width:100%; margin:0 auto; margin-top:20px !important;padding:15px; background-color:rgb(244, 244, 244);"">
-            <div class="container-fluid">
-                <div class="btn-group" style="float:right">
-                    <button type="submit" class="btn btn-secondary rounded" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin-right:10px"->Cancel</button>
-                    <button type="submit" class="btn btn-primary rounded" data-bs-toggle="modal" data-bs-target="#staticBackdrop"->Send</button>
+            <div class="card" style="width:100%; margin:0 auto; margin-top:20px !important;padding:15px; background-color:rgb(244, 244, 244);"">
+                <div class="container-fluid">
+                    <div class="btn-group" style="float:right">
+                        <button type="submit" class="btn btn-secondary rounded" style="margin-right:10px"->Cancel</button>
+                        <button type="submit" class="btn btn-primary rounded" onclick="return IsEmpty();"->Send</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </body>
 </html>
